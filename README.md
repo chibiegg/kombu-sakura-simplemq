@@ -4,7 +4,7 @@
 ## Install
 
 ```
-pip install git+https://github.com/chibiegg/kombu-sakura-simplemq
+pip install kombu-sakura-simplemq
 ```
 
 ### Quick overview
