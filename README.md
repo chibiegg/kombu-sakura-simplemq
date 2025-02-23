@@ -14,12 +14,7 @@ from kombu import transport, Connection, Queue
 
 transport.TRANSPORT_ALIASES["sakura-simplemq"] = "kombu_sakura_simplemq.transport:Transport"
 
-transport_options = {
-    "api_key": "YOUR_SIMPLEMQ_API_KEY",
-    "zone": "tk1b",
-}
-
-with Connection("sakura-simplemq://", transport_options=transport_options) as conn:
+with Connection("sakura-simplemq://:{}@".format("YOUR_SIMPLEMQ_API_KEY")) as conn:
     queue_name = "somequeue"
     queue = Queue(queue_name)
     queue.maybe_bind(conn)
