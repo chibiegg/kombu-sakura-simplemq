@@ -23,7 +23,7 @@ class Channel(virtual.Channel):
 
     @cached_property
     def zone(self):
-        return self.transport_options.get("zone") or "is1a"
+        return self.transport_options.get("zone") or "tk1b"
 
     @cached_property
     def api_host(self):
@@ -31,7 +31,7 @@ class Channel(virtual.Channel):
 
     @cached_property
     def api_key(self):
-        return self.transport_options.get("api_key")
+        return self.connection.client.password or self.transport_options.get("api_key")
 
     def _get_queue_url(self, queue):
         return "https://{}/v1/queues/{}".format(self.api_host, queue)
